@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+ 
 import './App.css';
-
+import ImageGallery from "./Component/ImageGallery";
 function App() {
+
+  const images = [
+ 
+    "./image/image-1.webp",
+    "./image/image-3.webp",
+    "./image/image-4.webp",
+    "./image/image-5.webp",
+    "./image/image-6.webp",
+    "./image/image-7.webp",
+    "/image/image-8.webp",
+    "/image/image-9.webp",
+    "/image/image-10.webp",
+    "/image/image-11.webp",
+ 
+ 
+
+    // Add more image paths as needed
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ImageGallery images={images} />   
     </div>
   );
 }
