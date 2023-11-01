@@ -1,0 +1,12 @@
+ .header{
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1.5px solid #d3d2d2; */
+    padding :.6rem 1rem
+
+ }
+ .home{
+    background-color: #fff;
+    border-radius: 1.5%;
+    padding : 0px
+ }

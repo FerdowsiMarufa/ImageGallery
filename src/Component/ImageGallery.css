@@ -36,3 +36,19 @@
     transition: transform 0.3s;
   }
   
+/* 
+  added by marufa */
+
+
+  .single-image{
+    width: 12rem;
+    border: 1px solid #ebe6e6;
+    margin: 1rem;
+    transition: filter 0.3s;
+  }
+  .single-image:hover{
+    filter: brightness(80%);
+  }
+  .gallery-item img{
+  width: 100%;
+  }
