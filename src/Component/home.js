@@ -55,6 +55,7 @@ const Home = () => {
     localStorage.setItem('Images', JSON.stringify(images));
   }, [images]);
 
+
   return (
     <div className="container home">
       <div className="header">
@@ -68,50 +69,104 @@ const Home = () => {
       </div>
       <hr />
 
+      {/* Wrap the Draggable components in a Droppable component and pass the DragDropContext component */}
       <DragDropContext>
-      <div className="container">
-
-      <Droppable droppableId="droppable" >
-        {(provided ) => ( 
-        <div className="row"         {...provided.droppableProps}     ref={provided.innerRef}  >
-      
-        {images.map((image, index) => (
-
-         <Draggable draggableId={image.Id} index={index}>  
-             {(provided ) => (  
-                      <div   ref={provided.innerRef}  
-                      {...provided.draggableProps}  
-                      {...provided.dragHandleProps}  key={index} className="col-6 col-md-4 col-lg-2 single-image p-0">
-                      <div className="gallery-item">
-                        <div className="checkbox-overlay">
-                          <input
-                            type="checkbox"
-                            className="image-checkbox"
-                            checked={selectedImages.includes(image.Id)}
-                            onChange={() => toggleImageSelection(image.Id)}
-                          />
+        <div className="container">
+          <Droppable droppableId="hhh"  >
+            {(provided) => (
+              <div className="row" {...provided.droppableProps} ref={provided.innerRef}>
+                {/* Make sure that the draggableId and droppableId props are unique */}
+                {images.map((image, index) => (
+                  <Draggable draggableId={image.Id} index={index} key={image.Id}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        className="col-6 col-md-4 col-lg-2 single-image p-0"
+                      >
+                        <div className="gallery-item">
+                          {/* <div className="checkbox-overlay">
+                            <input
+                              type="checkbox"
+                              className="image-checkbox"
+                              checked={selectedImages.includes(image.Id)}
+                              onChange={() => toggleImageSelection(image.Id)}
+                            />
+                          </div> */}
+                          <img src={image.imagePath} alt={`Image ${index + 1}`} className="img-fluid image" />
                         </div>
-                        <img src={image.imagePath} alt={`Image ${index + 1}`} className="img-fluid image" />
                       </div>
-                    </div>
-             )}  
-          </Draggable> 
-     
-        ))}
-         <div className="col-6 col-md-4 col-lg-2  add-image p-0">
-
-         <i className="fa fa-image"></i>
-         <span onClick={addImage}>Add Images</span>
-         </div>
-      </div>
-         )}
-      </Droppable>
-
-      </div>
+                    )}
+                  </Draggable>
+                ))}
+              </div>
+            )}
+          </Droppable>
+        </div>
       </DragDropContext>
-    
     </div>
   );
+  
+
+
+  // return (
+  //   <div className="container home">
+  //     <div className="header">
+  //       <div className="selectedDiv">
+  //         <input type="checkbox" id="checkbox" name="checkbox" />
+  //         <span>{selectedImages.length} items selected</span>
+  //       </div>
+  //       <div className="DeleteDiv">
+  //         <span onClick={deleteImage}>Delete items</span>
+  //       </div>
+  //     </div>
+  //     <hr />
+
+  //     <DragDropContext>
+  //     <div className="container">
+
+  //     <Droppable droppableId="droppable" >
+  //       {(provided ) => ( 
+  //       <div className="row"  {...provided.droppableProps}     ref={provided.innerRef}  >
+      
+  //       {images.map((image, index) => (
+
+  //        <Draggable draggableId={image.Id} index={index}>  
+  //            {(provided ) => (  
+  //                     <div   ref={provided.innerRef}  
+  //                     {...provided.draggableProps}  
+  //                     {...provided.dragHandleProps}  key={index} className="col-6 col-md-4 col-lg-2 single-image p-0">
+  //                     <div className="gallery-item">
+  //                       <div className="checkbox-overlay">
+  //                         <input
+  //                           type="checkbox"
+  //                           className="image-checkbox"
+  //                           checked={selectedImages.includes(image.Id)}
+  //                           onChange={() => toggleImageSelection(image.Id)}
+  //                         />
+  //                       </div>
+  //                       <img src={image.imagePath} alt={`Image ${index + 1}`} className="img-fluid image" />
+  //                     </div>
+  //                   </div>
+  //            )}  
+  //         </Draggable> 
+     
+  //       ))}
+  //        <div className="col-6 col-md-4 col-lg-2  add-image p-0">
+
+  //        <i className="fa fa-image"></i>
+  //        <span onClick={addImage}>Add Images</span>
+  //        </div>
+  //     </div>
+  //        )}
+  //     </Droppable>
+
+  //     </div>
+  //     </DragDropContext>
+    
+  //   </div>
+  // );
 };
 
 export default Home;

@@ -12,8 +12,9 @@
  }
 
  .single-image{
-    position: relative;
-   /* width: 12rem; */
+    /* position: relative; */
+   width: 12rem;
+   height: 12rem;
    border: 1px solid #ebe6e6;
    margin: 1rem;
    border-radius: 5%;
@@ -38,8 +39,10 @@
  
  .checkbox-overlay {
    position: absolute;
- width: 100%;
- height: 100%;
+ /* width: 100%;
+ height: 100%; */
+ width: 12rem;
+ height: 12rem;
    background-color: rgba(48, 50, 50, 0.5); /* Use rgba to make it semi-transparent */
  text-align: start;
    opacity: .2; /* Initially hide the overlay */
