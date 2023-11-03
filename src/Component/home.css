@@ -10,3 +10,48 @@
     border-radius: 1.5%;
     padding : 0px
  }
+
+ .single-image{
+    position: relative;
+   /* width: 12rem; */
+   border: 1px solid #ebe6e6;
+   margin: 1rem;
+   border-radius: 5%;
+ 
+  
+ }
+ .single-image img {
+   border-radius: 5%;
+ }
+  .single-image .image-checkbox{
+   margin: .5rem;
+  }
+  .add-image {
+   border-radius: 5%;
+   border: 1px dashed  #ebe6e6;
+   margin: 1rem;
+   height: 12rem;
+   text-align: center;
+
+ }
+ 
+ 
+ .checkbox-overlay {
+   position: absolute;
+ width: 100%;
+ height: 100%;
+   background-color: rgba(48, 50, 50, 0.5); /* Use rgba to make it semi-transparent */
+ text-align: start;
+   opacity: .2; /* Initially hide the overlay */
+   border-radius: 5%;
+ }
+ 
+ .single-image:hover .checkbox-overlay {                  
+   opacity: 1; /* Show the overlay on hover */
+ }
+ .single-image input[type="checkbox"]:checked ~ .checkbox-overlay {
+   opacity: 0.8; /* Change the opacity when the checkbox is checked */
+ }
+ .gallery-item img{
+ width: 100%;
+ }

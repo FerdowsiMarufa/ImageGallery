@@ -1,6 +1,6 @@
  
 import './App.css';
-import ImageGallery from "./Component/ImageGallery";
+ 
 import Home from "./Component/home";
 function App() {
 
