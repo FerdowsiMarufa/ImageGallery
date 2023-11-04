@@ -11,50 +11,73 @@
     padding : 0px
  }
 
- .single-image{
-    /* position: relative; */
-   width: 12rem;
-   height: 12rem;
-   border: 1px solid #ebe6e6;
-   margin: 1rem;
-   border-radius: 5%;
- 
-  
- }
- .single-image img {
-   border-radius: 5%;
- }
-  .single-image .image-checkbox{
-   margin: .5rem;
-  }
-  .add-image {
-   border-radius: 5%;
-   border: 1px dashed  #ebe6e6;
-   margin: 1rem;
-   height: 12rem;
-   text-align: center;
 
- }
+ .image-gallery {
+  text-align: center;
+  padding: 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-auto-rows: 9rem; /* Set the default row height */
+  gap: .6rem;
+}
+
+.image {
+   
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5%;
+
+}
+
+img {
+  border-radius: 5%;
+
+  width: 100%;
+  height: 100%;
+
+
+}
+
+/* CSS to make the first image span 2 columns and 2 rows */
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+  transition: transform 0.3s;
+}
+.image-container {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5%;
+
+  
+}
+.image-overlay {
+  position: absolute;
  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(48, 50, 50, 0.5);
+  text-align: start;
+  opacity: 0;
+  border-radius: 5%;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+.image-container.checked .image-overlay {
+ opacity:.8 /* Show the overlay when the checkbox is checked */
+}
  
- .checkbox-overlay {
-   position: absolute;
- /* width: 100%;
- height: 100%; */
- width: 12rem;
- height: 12rem;
-   background-color: rgba(48, 50, 50, 0.5); /* Use rgba to make it semi-transparent */
- text-align: start;
-   opacity: .2; /* Initially hide the overlay */
-   border-radius: 5%;
- }
+.image-checkbox{
+  margin: .6rem;
  
- .single-image:hover .checkbox-overlay {                  
-   opacity: 1; /* Show the overlay on hover */
- }
- .single-image input[type="checkbox"]:checked ~ .checkbox-overlay {
-   opacity: 0.8; /* Change the opacity when the checkbox is checked */
- }
- .gallery-item img{
- width: 100%;
- }
+  cursor: pointer;
+}
+.DeleteDiv{
+  cursor: pointer;
+}
