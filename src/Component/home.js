@@ -76,10 +76,10 @@ const Home = () => {
 
    function onDragStart(result){
     console.log(" onDragStart", result)
-    const newimages= [...images];
-    const [removed] = newimages.splice(result.source.index, 1);
-    console.log(" onDragStart removed", removed) 
-    newimages.splice(result.destination.index, 0, removed);
+    // const newimages= [...images];
+    // const [removed] = newimages.splice(result.source.index, 1);
+    // console.log(" onDragStart removed", removed) 
+    // newimages.splice(result.destination.index, 0, removed);
     // setImages(newimages);
     // setImages(removed);
    }
