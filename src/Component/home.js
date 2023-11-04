@@ -90,101 +90,70 @@ const Home = () => {
 
    return (
 
-    <div className="container home">
-      {/* <div className="header">
-        <div className="selectedDiv">
-          <input type="checkbox" id="checkbox"      checked={selectedImages.length > 0} name="checkbox" />
-          <span>{selectedImages.length} items selected</span>
+  <div className="container home ">
+    <div className="header">
+      < div className=' header-component'>
+        {selectedImages.length == 0 && (
+        <h3 >Gallery</h3>
+        )}
+        {selectedImages.length > 0 && (
+         <div className="selectedDiv">
+           <input type="checkbox" id="checkbox"  checked={selectedImages.length >0} name="checkbox" 
+            onChange={() => {
+             if (selectedImages.length === images.length) {
+                setSelectedImages([]);}
+             else {
+                const allImageIds = images.map((image) => image.Id);
+                setSelectedImages(allImageIds);
+                }
+             }}/>
+           <span> {selectedImages.length} {selectedImages.length === 1 ? 'item' : 'items'} selected</span>
+         </div>
+        )}
+       {selectedImages.length > 0 && (
+         <div className="DeleteDiv">
+           <span onClick={deleteImage}>Delete {selectedImages.length === 1 ? 'item' : 'items'}</span>
         </div>
-        <div className="DeleteDiv">
-          <span onClick={deleteImage}>Delete items</span>
-        </div>
-      </div> */}
+        )}
+    
+      </div>
 
-<div className="header">
-{selectedImages.length == 0 && (
-     <h3 >Gallery</h3>
-  )}
-  {selectedImages.length > 0 && (
-    <div className="selectedDiv">
+    </div>
 
     
-      <input
-        type="checkbox"
-        id="checkbox"
-        checked={selectedImages.length >0}
-        name="checkbox"
-        onChange={() => {
-          if (selectedImages.length === images.length) {
-            setSelectedImages([]);
-          } else {
-            const allImageIds = images.map((image) => image.Id);
-            setSelectedImages(allImageIds);
-          }
-        }}
-      />
-      <span>
-        {selectedImages.length} {selectedImages.length === 1 ? 'item' : 'items'} selected
-      </span>
-    </div>
-  )}
-  {selectedImages.length > 0 && (
-    <div className="DeleteDiv">
-      <span onClick={deleteImage}>Delete {selectedImages.length === 1 ? 'item' : 'items'}</span>
-    </div>
-  )}
-</div>
-
-      <hr />
 
       <DragDropContext  onDragEnd={onDragEnd}  >
-      <div className="container image-Container ">
-
-
-      <Droppable droppableId="hhh"  >
+        <div className="container image-Container ">
+          <Droppable droppableId="hhh"  >
             {(provided) => (
-               <div className="gallery" {...provided.droppableProps} ref={provided.innerRef}>
-             {images.map((image, index) => (
-  <Draggable
-    draggableId={image.Id.toString()}
-    index={index}
-    key={image.Id.toString()}
-  >
-    {(provided) => (
-      <div
-        ref={provided.innerRef}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        className={`image-container ${selectedImages.includes(image.Id) ? 'checked' : ''} ${index === 0 ? 'large' : ''}`}
-      >
-        <div className="image-overlay">
-          <input
-            type="checkbox"
-            className="image-checkbox"
-            checked={selectedImages.includes(image.Id)}
-            onChange={() => toggleImageSelection(image.Id)}
-          />
-        </div>
-        <img src={image.imagePath} alt={`Image ${image.Id}`} />
-      </div>
-    )}
-  </Draggable>
-))}
-                       <div className="image-container">
-                 <i className="fa fa-image"></i>
-                   <span onClick={addImage}>Add Images</span>
-                 </div>
-
-                    {provided.placeholder}
-            </div>        
-
-            )}
-       </Droppable>     
-       
-      </div>
-
+              <div className="gallery" {...provided.droppableProps} ref={provided.innerRef}>
+                 {images.map((image, index) => (
+                 <Draggable draggableId={image.Id.toString()}  index={index} key={image.Id.toString()} >
+                   {(provided) => (
+                     <div ref={provided.innerRef}  {...provided.draggableProps}  {...provided.dragHandleProps}
+                       className={`image-card ${selectedImages.includes(image.Id) ? 'checked' : ''} ${index === 0 ? 'large' : ''}`} >
+                        <div className="image-overlay">
+                          <input type="checkbox" className="image-checkbox" onChange={() => toggleImageSelection(image.Id)}/>
+                       </div>
+                       <img src={image.imagePath} alt={`Image ${image.Id}`} />
+                     </div>
+                   )}
+                 </Draggable>
+               ))}
+               <div className="image-card add-image">
+                <div >
+                  <i className="fa fa-image"></i>
+                   <p onClick={addImage}>Add Images</p>
+                </div>
+                  
+               </div>
+                {provided.placeholder}
+             </div>        
+           )}
+          </Droppable>           
+       </div>
       </DragDropContext>
-    </div>
+  </div>
   );
 };
 

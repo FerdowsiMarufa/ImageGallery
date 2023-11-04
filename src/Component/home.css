@@ -1,17 +1,33 @@
- .header{
-    display: flex;
-    justify-content: space-between;
-    /* border-bottom: 1.5px solid #d3d2d2; */
-    padding :.6rem 1rem
-
- }
- .home{
+  .home{
     background-color: #fff;
     border-radius: 1.5%;
-    padding : 0px
+    padding: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+ }
+ .header{
+ 
+    border-bottom: 1.5px solid #d3d2d2;
+ 
+ }
+ .header-component{
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+ padding : 0 .7rem;
+
+  align-items: center;
  }
 
-
+.image-Container {
+  padding: 1.5rem;
+}
+.add-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
  .image-gallery {
   text-align: center;
   padding: 1rem;
@@ -21,7 +37,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
   grid-auto-rows: 9rem; /* Set the default row height */
-  gap: .6rem;
+  gap: 1.4rem;
 }
 
 .image {
@@ -47,7 +63,7 @@ img {
   grid-row: span 2;
   transition: transform 0.3s;
 }
-.image-container {
+.image-card {
   position: relative;
   border: 1px solid #ccc;
   border-radius: 5%;
@@ -66,11 +82,11 @@ img {
   transition: opacity 0.3s;
 }
 
-.image-container:hover .image-overlay {
+.image-card:hover .image-overlay {
   opacity: 1;
 }
-.image-container.checked .image-overlay {
- opacity:.8 /* Show the overlay when the checkbox is checked */
+.image-card.checked .image-overlay {
+ opacity:.4 /* Show the overlay when the checkbox is checked */
 }
  
 .image-checkbox{
@@ -80,4 +96,5 @@ img {
 }
 .DeleteDiv{
   cursor: pointer;
+  color: red;
 }
