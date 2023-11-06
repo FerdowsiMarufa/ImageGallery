@@ -1,3 +1,11 @@
+ 
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
  
@@ -9,7 +17,7 @@ import './home.css';
 
 const Home = () => {
   const [images, setImages] = useState(
-    JSON.parse(localStorage.getItem('Images'))||
+    // JSON.parse(localStorage.getItem('Images'))||
     [
     { imagePath: './image/image-1.webp', Id: 1 },
     { imagePath: './image/image-2.webp', Id: 2 },
@@ -21,14 +29,8 @@ const Home = () => {
     { imagePath: './image/image-9.webp', Id: 8 },
     { imagePath: './image/image-10.jpeg', Id: 9 },
     { imagePath: './image/image-11.jpeg', Id: 10 },
-    { imagePath: './image/image-4.webp', Id: 11},
-    { imagePath: './image/image-5.webp', Id: 12 },
-    { imagePath: './image/image-6.webp', Id: 16 },
-    { imagePath: './image/image-7.webp', Id: 17 },
-    { imagePath: './image/image-9.webp', Id: 18 },
-    { imagePath: './image/image-10.jpeg', Id: 19 },
-    { imagePath: './image/image-11.jpeg', Id: 20 },
-    // Add more image paths as needed
+ 
+  
   ]);
 
 
@@ -55,9 +57,7 @@ const Home = () => {
     } else {
       setSelectedImages([...selectedImages, imageId]);
     }
-    // if (selectedImages.length>0){
-
-    // }
+  
   };
  
 
@@ -77,16 +77,7 @@ const Home = () => {
    
 }
 
-   function onDragStart(result){
-    console.log(" onDragStart", result)
-    const newimages= [...images];
-    const [removed] = newimages.splice(result.source.index, 1);
-    console.log(" onDragStart removed", removed) 
-    newimages.splice(result.destination.index, 0, removed);
-    // setImages(newimages);
-    // setImages(removed);
-   }
-
+ 
 
    return (
 
@@ -120,7 +111,7 @@ const Home = () => {
 
     </div>
 
-    
+     {/* Image gallery */}
 
       <DragDropContext  onDragEnd={onDragEnd}  >
         <div className="container image-Container ">
