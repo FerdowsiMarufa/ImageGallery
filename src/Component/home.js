@@ -17,7 +17,7 @@ import './home.css';
 
 const Home = () => {
   const [images, setImages] = useState(
-    // JSON.parse(localStorage.getItem('Images'))||
+    JSON.parse(localStorage.getItem('Images'))||
     [
     { imagePath: './image/image-1.webp', Id: 1 },
     { imagePath: './image/image-2.webp', Id: 2 },
