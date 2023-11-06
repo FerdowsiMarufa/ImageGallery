@@ -37,7 +37,7 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-auto-rows: 9rem; /* Set the default row height */
+  grid-auto-rows: 8rem; /* Set the default row height */
   gap: 1.4rem;
 }
 
